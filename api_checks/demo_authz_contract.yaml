@@ -1,0 +1,90 @@
+# Demo authn/authz contract checks.
+#
+# This spec is designed to work without committing any real secrets by using env vars
+# for tokens. The contract runner expands ${VARS} in paths/headers.
+#
+# Required env vars for running this demo:
+# - SUT_BASE_URL
+# - ADMIN_TOKEN
+# - VIEWER_TOKEN
+# - EXPIRED_TOKEN
+# - INVALID_TOKEN
+
+checks:
+  # Token validation + baseline access
+  - method: GET
+    path: /metrics/device.model
+    expected_status: 200
+    auth: none
+    headers:
+      Authorization: Bearer ${VIEWER_TOKEN}
+    schema: schemas/metric_value.schema.json
+    assert:
+      - type: json_path_equals
+        path: value
+        expected: eyeSight-DEMO
+
+  # Permission boundary: viewer lacks coverage permission
+  - method: GET
+    path: /metrics/coverage.vendor_model_count
+    expected_status: 403
+    auth: none
+    headers:
+      Authorization: Bearer ${VIEWER_TOKEN}
+    schema: schemas/error.schema.json
+    assert:
+      - type: json_path_equals
+        path: error
+        expected: forbidden
+
+  # Role-based access: viewer cannot access admin endpoint
+  - method: GET
+    path: /admin/metrics/device.model
+    expected_status: 403
+    auth: none
+    headers:
+      Authorization: Bearer ${VIEWER_TOKEN}
+    schema: schemas/error.schema.json
+    assert:
+      - type: json_path_equals
+        path: error
+        expected: forbidden
+
+  # Admin allowed
+  - method: GET
+    path: /admin/metrics/device.model
+    expected_status: 200
+    auth: none
+    headers:
+      Authorization: Bearer ${ADMIN_TOKEN}
+    schema: schemas/metric_value.schema.json
+    assert:
+      - type: json_path_equals
+        path: value
+        expected: eyeSight-DEMO
+
+  # Expired token handling
+  - method: GET
+    path: /metrics/device.model
+    expected_status: 401
+    auth: none
+    headers:
+      Authorization: Bearer ${EXPIRED_TOKEN}
+    schema: schemas/error.schema.json
+    assert:
+      - type: json_path_equals
+        path: error
+        expected: token_expired
+
+  # Invalid token handling
+  - method: GET
+    path: /metrics/device.model
+    expected_status: 401
+    auth: none
+    headers:
+      Authorization: Bearer ${INVALID_TOKEN}
+    schema: schemas/error.schema.json
+    assert:
+      - type: json_path_equals
+        path: error
+        expected: invalid_token

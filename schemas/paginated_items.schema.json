@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["items", "page", "limit", "total"],
+  "properties": {
+    "items": {"type": "array"},
+    "page": {"type": "integer", "minimum": 1},
+    "limit": {"type": "integer", "minimum": 1},
+    "total": {"type": "integer", "minimum": 0},
+    "next_page": {"type": ["integer", "null"], "minimum": 1}
+  }
+}

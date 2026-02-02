@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["error"],
+  "properties": {
+    "error": {"type": "string"},
+    "message": {"type": "string"},
+    "metric": {"type": "string"},
+    "path": {"type": "string"}
+  }
+}

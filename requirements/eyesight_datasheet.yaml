@@ -1,0 +1,113 @@
+# Datasheet-derived regression requirements.
+#
+# Workflow:
+# 1) Run: python tools/extract_datasheet_requirements.py --pdf "eyeSight Datasheet.pdf"
+# 2) Review/edit the generated candidates in requirements/eyesight_candidates.yaml
+# 3) Copy the ones you want to enforce into this file and fill in metric/type/expected
+# 4) Run: pytest
+#
+# Each item must have a stable `id` so it can be tracked over time.
+requirements:
+  - id: DS-001
+    title: "Provides real-time asset inventory"
+    source:
+      document: "eyeSight Datasheet"
+      file: "eyeSight Datasheet.pdf"
+      page: 1
+      excerpt: "Get a real-time asset inventory that uncovers visibility gaps"
+    type: equals
+    metric: "capabilities.asset_inventory.realtime"
+    expected:
+      value: true
+    tags: ["datasheet", "demo"]
+
+  - id: DS-002
+    title: "Uses active and passive monitoring techniques"
+    source:
+      document: "eyeSight Datasheet"
+      file: "eyeSight Datasheet.pdf"
+      page: 2
+      excerpt: "Leverage the flexibility of 30+ active and passive monitoring"
+    type: range
+    metric: "capabilities.monitoring.technique_count"
+    expected:
+      min: 30
+    tags: ["datasheet", "demo"]
+
+  - id: DS-003
+    title: "Supports IPv4 and IPv6 discovery"
+    source:
+      document: "eyeSight Datasheet"
+      file: "eyeSight Datasheet.pdf"
+      page: 2
+      excerpt: "both IPv4 and IPv6 address spaces."
+    type: equals
+    metric: "network.discovery.supports_ipv6"
+    expected:
+      value: true
+    tags: ["datasheet", "demo"]
+
+  - id: DS-004
+    title: "Supports Device Cloud context"
+    source:
+      document: "eyeSight Datasheet"
+      file: "eyeSight Datasheet.pdf"
+      page: 1
+      excerpt: "Harness the power of Device Cloud for full device context"
+    type: equals
+    metric: "capabilities.device_cloud.enabled"
+    expected:
+      value: true
+    tags: ["datasheet", "demo"]
+
+  - id: DS-005
+    title: "Classifies OS and OS version"
+    source:
+      document: "eyeSight Datasheet"
+      file: "eyeSight Datasheet.pdf"
+      page: 3
+      excerpt: "classification taxonomy identifies ... operating system and version"
+    type: equals
+    metric: "capabilities.classification.includes_os_version"
+    expected:
+      value: true
+    tags: ["datasheet", "demo"]
+
+  - id: DS-006
+    title: "OS version coverage >= 1900"
+    source:
+      document: "eyeSight Datasheet"
+      file: "eyeSight Datasheet.pdf"
+      page: 3
+      excerpt: "More than 1,900 different operating system versions"
+    type: range
+    metric: "coverage.os_version_count"
+    expected:
+      min: 1900
+    tags: ["datasheet", "demo"]
+
+  - id: DS-007
+    title: "Vendor/model coverage >= 7700"
+    source:
+      document: "eyeSight Datasheet"
+      file: "eyeSight Datasheet.pdf"
+      page: 3
+      excerpt: "Over 7,700 different device vendors and models"
+    type: range
+    metric: "coverage.vendor_model_count"
+    expected:
+      min: 7700
+    tags: ["datasheet", "demo"]
+
+  - id: DS-008
+    title: "Can search and filter assets"
+    source:
+      document: "eyeSight Datasheet"
+      file: "eyeSight Datasheet.pdf"
+      page: 4
+      excerpt: "Quickly search and filter assets by policy or device attributes"
+    type: equals
+    metric: "capabilities.asset_search_filter.enabled"
+    expected:
+      value: true
+    tags: ["datasheet", "demo"]

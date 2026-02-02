@@ -1,0 +1,38 @@
+requirements:
+  - id: DEMO-001
+    title: "Device model matches demo"
+    source:
+      document: "Demo"
+      file: "(synthetic)"
+      page: 0
+      excerpt: "Demo-only requirement"
+    type: equals
+    metric: "device.model"
+    expected:
+      value: "eyeSight-DEMO"
+    tags: ["demo"]
+
+  - id: DEMO-002
+    title: "Firmware version present"
+    source:
+      document: "Demo"
+      file: "(synthetic)"
+      page: 0
+      excerpt: "Demo-only requirement"
+    type: presence
+    metric: "device.firmware_version"
+    expected: {}
+    tags: ["demo"]
+
+  - id: DEMO-003
+    title: "Throughput at least 100 Mbps"
+    source:
+      document: "Demo"
+      file: "(synthetic)"
+      page: 0
+      excerpt: "Demo-only requirement"
+    type: range
+    metric: "performance.max_throughput_mbps"
+    expected:
+      min: 100
+    tags: ["demo"]

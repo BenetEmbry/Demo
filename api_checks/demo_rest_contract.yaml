@@ -1,0 +1,95 @@
+# REST API concepts contract checks
+#
+# Validates:
+# - HTTP methods
+# - Status codes
+# - Authentication concepts (Bearer)
+# - JSON serialization (application/json)
+# - Pagination (Link header + paging fields)
+# - Error handling (JSON error schema)
+
+checks:
+  # Auth required
+  - method: GET
+    path: /items?page=1&limit=2
+    expected_status: 401
+    schema: schemas/error.schema.json
+    expected_headers:
+      Content-Type:
+        contains: application/json
+
+  # List with pagination
+  - method: GET
+    path: /items?page=1&limit=2
+    expected_status: 200
+    auth: none
+    headers:
+      Authorization: Bearer ${REST_TOKEN}
+    schema: schemas/paginated_items.schema.json
+    expected_headers:
+      Content-Type:
+        contains: application/json
+      X-Request-Id:
+        exists: true
+      Link:
+        regex: "<.*/items\\?page=2&limit=2>; rel=\\\"next\\\""
+    assert:
+      - type: json_path_equals
+        path: page
+        expected: 1
+      - type: json_path_equals
+        path: limit
+        expected: 2
+
+  # POST create
+  - method: POST
+    path: /items
+    expected_status: 201
+    auth: none
+    headers:
+      Authorization: Bearer ${REST_TOKEN}
+      Content-Type: application/json
+    schema: schemas/metric_value.schema.json
+    expected_headers:
+      Content-Type:
+        contains: application/json
+      X-Request-Id:
+        exists: true
+
+  # Unsupported method
+  - method: PATCH
+    path: /items
+    expected_status: 405
+    auth: none
+    headers:
+      Authorization: Bearer ${REST_TOKEN}
+    schema: schemas/error.schema.json
+    expected_headers:
+      Content-Type:
+        contains: application/json
+
+  # Not found error
+  - method: GET
+    path: /items/does-not-exist
+    expected_status: 404
+    auth: none
+    headers:
+      Authorization: Bearer ${REST_TOKEN}
+    schema: schemas/error.schema.json
+    expected_headers:
+      Content-Type:
+        contains: application/json
+
+  # Bad JSON request
+  - method: POST
+    path: /items
+    expected_status: 400
+    auth: none
+    headers:
+      Authorization: Bearer ${REST_TOKEN}
+      Content-Type: application/json
+      X-Bad-Json: true
+    schema: schemas/error.schema.json
+    expected_headers:
+      Content-Type:
+        contains: application/json

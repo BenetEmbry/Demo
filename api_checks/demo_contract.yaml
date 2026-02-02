@@ -1,0 +1,37 @@
+# Demo contract checks for the local mock API.
+#
+# This validates:
+# - Status codes
+# - Response schema
+# - Positive and negative cases
+# - Basic business logic / data accuracy assertions
+
+checks:
+  - name: health
+    method: GET
+    path: /healthz
+    expected_status: 200
+    schema: schemas/healthz.schema.json
+    assert:
+      - type: json_path_equals
+        path: ok
+        expected: true
+
+  - name: metric_device_model
+    method: GET
+    path: /metrics/device.model
+    expected_status: 200
+    schema: schemas/metric_value.schema.json
+    assert:
+      - type: json_path_exists
+        path: value
+
+  - name: negative_unknown_metric
+    method: GET
+    path: /metrics/does.not.exist
+    expected_status: 404
+    schema: schemas/error.schema.json
+    assert:
+      - type: json_path_equals
+        path: error
+        expected: unknown_metric

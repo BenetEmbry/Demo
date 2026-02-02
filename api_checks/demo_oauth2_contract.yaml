@@ -1,0 +1,28 @@
+# Demo contract checks that exercise OAuth2 auth overrides.
+#
+# Intended usage:
+# - Set SUT_BASE_URL to your API
+# - Set SUT_AUTH_MODE=oauth2 and either SUT_OAUTH_TOKEN (static) OR
+#   SUT_OAUTH_TOKEN_URL + client credentials
+# - Run: python -c "from regression.api_contract import run_contract_checks; run_contract_checks('api_checks/demo_oauth2_contract.yaml')"
+
+checks:
+  - method: GET
+    path: /metrics/device.model
+    expected_status: 200
+    auth: oauth2
+    schema: schemas/metric_value.schema.json
+    assert:
+      - type: json_path_equals
+        path: value
+        expected: eyeSight-DEMO
+
+  - method: GET
+    path: /metrics/device.model
+    expected_status: 401
+    auth: none
+    schema: schemas/error.schema.json
+    assert:
+      - type: json_path_equals
+        path: error
+        expected: unauthorized

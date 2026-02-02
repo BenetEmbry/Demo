@@ -1,0 +1,7 @@
+pytest
+pypdf
+pyyaml
+requests
+jsonschema
+PyJWT
+cryptography

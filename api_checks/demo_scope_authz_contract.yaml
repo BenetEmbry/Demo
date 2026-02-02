@@ -1,0 +1,90 @@
+# Demo authn/authz contract checks using an OAuth2-style `scope` claim.
+#
+# The contract runner expands env vars in headers/paths so you can inject tokens
+# without committing secrets.
+#
+# Required env vars for running this demo:
+# - SUT_BASE_URL
+# - SCOPE_VIEWER_TOKEN
+# - SCOPE_ADMIN_TOKEN
+# - SCOPE_EXPIRED_TOKEN
+# - SCOPE_INVALID_TOKEN
+
+checks:
+  # Scope-based access (viewer)
+  - method: GET
+    path: /metrics/device.model
+    expected_status: 200
+    auth: none
+    headers:
+      Authorization: Bearer ${SCOPE_VIEWER_TOKEN}
+    schema: schemas/metric_value.schema.json
+    assert:
+      - type: json_path_equals
+        path: value
+        expected: eyeSight-DEMO
+
+  # Permission boundary: viewer lacks coverage scope
+  - method: GET
+    path: /metrics/coverage.vendor_model_count
+    expected_status: 403
+    auth: none
+    headers:
+      Authorization: Bearer ${SCOPE_VIEWER_TOKEN}
+    schema: schemas/error.schema.json
+    assert:
+      - type: json_path_equals
+        path: error
+        expected: insufficient_scope
+
+  # Admin scope required
+  - method: GET
+    path: /admin/metrics/device.model
+    expected_status: 403
+    auth: none
+    headers:
+      Authorization: Bearer ${SCOPE_VIEWER_TOKEN}
+    schema: schemas/error.schema.json
+    assert:
+      - type: json_path_equals
+        path: error
+        expected: insufficient_scope
+
+  # Admin allowed
+  - method: GET
+    path: /admin/metrics/device.model
+    expected_status: 200
+    auth: none
+    headers:
+      Authorization: Bearer ${SCOPE_ADMIN_TOKEN}
+    schema: schemas/metric_value.schema.json
+    assert:
+      - type: json_path_equals
+        path: value
+        expected: eyeSight-DEMO
+
+  # Expired token handling
+  - method: GET
+    path: /metrics/device.model
+    expected_status: 401
+    auth: none
+    headers:
+      Authorization: Bearer ${SCOPE_EXPIRED_TOKEN}
+    schema: schemas/error.schema.json
+    assert:
+      - type: json_path_equals
+        path: error
+        expected: token_expired
+
+  # Invalid token handling
+  - method: GET
+    path: /metrics/device.model
+    expected_status: 401
+    auth: none
+    headers:
+      Authorization: Bearer ${SCOPE_INVALID_TOKEN}
+    schema: schemas/error.schema.json
+    assert:
+      - type: json_path_equals
+        path: error
+        expected: invalid_token

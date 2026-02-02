@@ -1,0 +1,187 @@
+source:
+  document: eyeSight Datasheet
+  file: eyeSight Datasheet.pdf
+candidates:
+- id: CAND-0001
+  page: 1
+  excerpt: ▶ Discover your entire asset inventory with over 30 active and passive
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0002
+  page: 1
+  excerpt: techniques that reveal coverage gaps across your organization, providing
+    a
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0003
+  page: 1
+  excerpt: machine learning that continuously improves Forescout’s Device Cloud, a
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0004
+  page: 1
+  excerpt: proprietary source of device intelligence with over 30 billion unique data
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0005
+  page: 1
+  excerpt: Gain a unified, real-time
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0006
+  page: 1
+  excerpt: ▶ Get a real-time asset inventory that uncovers visibility gaps
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0007
+  page: 1
+  excerpt: ▶ Harness the power of Device Cloud for full device context
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0008
+  page: 2
+  excerpt: • Physical and SDN infrastructure including switches, rout-
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0009
+  page: 2
+  excerpt: • Laptops, tablets, smartphones, BYOD/guest systems, work-
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0010
+  page: 2
+  excerpt: • IoT assets in campus networks, data centers, branches,
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0011
+  page: 2
+  excerpt: • Public and private cloud instances across Amazon Web
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0012
+  page: 2
+  excerpt: • Services, Microsoft Azure, and VMware environments
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0013
+  page: 2
+  excerpt: • Operational technology (OT) and industrial control systems
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0014
+  page: 2
+  excerpt: • IoMT devices in hospitals and healthcare delivery networks
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0015
+  page: 2
+  excerpt: Leverage the flexibility of 30+ active and passive monitoring
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0016
+  page: 2
+  excerpt: both IPv4 and IPv6 address spaces.
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0017
+  page: 3
+  excerpt: from over 50 million devices and automatically provides comprehensive context
+    for every connected asset. Our
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0018
+  page: 3
+  excerpt: multidimensional classification taxonomy identifies device function and
+    type, operating system and version, and
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0019
+  page: 3
+  excerpt: • More than 1,900 different operating system versions
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0020
+  page: 3
+  excerpt: • Over 7,700 different device vendors and models
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0021
+  page: 3
+  excerpt: • Healthcare devices from over 400 leading medical technology vendors
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0022
+  page: 3
+  excerpt: • Thousands of industrial control systems and automation devices used across
+    manufacturing, energy, oil
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0023
+  page: 4
+  excerpt: Toll-Free (US) 1-866-377-8771
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0024
+  page: 4
+  excerpt: Tel (Intl) +1-408-213-3191
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0025
+  page: 4
+  excerpt: Support +1-708-237-6591
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0026
+  page: 4
+  excerpt: ©2025 Forescout Technologies, Inc. All rights reserved. Forescout Technologies,
+    Inc.
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0027
+  page: 4
+  excerpt: is a Delaware corporation. A list of our trademarks and patents can be
+    found at
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0028
+  page: 4
+  excerpt: marks of their respective owners. 01_01
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0029
+  page: 4
+  excerpt: • Is security software installed, operational and up-to-date with the latest
+    patches?
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0030
+  page: 4
+  excerpt: • Is the asset critical to business operations?
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0031
+  page: 4
+  excerpt: • Are any assets running unauthorized applications or violating configuration
+    standards?
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0032
+  page: 4
+  excerpt: • Are assets - especially IoT, IoMT, and OT systems - using default or
+    weak passwords?
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0033
+  page: 4
+  excerpt: • Have rogue assets been detected, including those spoofing legitimate
+    assets?
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0034
+  page: 4
+  excerpt: • Are assets communicating over IPv6 being properly discovered, classified,
+    and assessed for risk?
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0035
+  page: 4
+  excerpt: • Which of your connected assets are most vulnerable to the latest threats?
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0036
+  page: 4
+  excerpt: • Assess risk and compliance progress across all or any subset of policies
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0037
+  page: 4
+  excerpt: • Identify vulnerable and compromised devices to accelerate and focus incident
+    response
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0038
+  page: 4
+  excerpt: • Track compliance trends over time
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0039
+  page: 4
+  excerpt: • Personalize and share executive and auditor ready views of risk and compliance
+    data
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0040
+  page: 4
+  excerpt: • Quickly search and filter assets by policy or device attributes
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0041
+  page: 4
+  excerpt: The Forescout 4D Platform™ extends the value of eyeSight with a suite of
+    automated cybersecurity capabilities to
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing
+- id: CAND-0042
+  page: 4
+  excerpt: Visit www.forescout.com/platform/ to learn about the Forescout 4D Platform™
+    .
+  notes: Promote to requirements/eyesight_datasheet.yaml after reviewing

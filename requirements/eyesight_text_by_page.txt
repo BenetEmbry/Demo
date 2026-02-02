@@ -1,0 +1,207 @@
+===== PAGE 1 =====
+1
+DATASHEET / eyeSight
+Forescout eyeSight delivers unparalleled insight into every connected asset through 
+deep integration into your network fabric. 
+ ▶ Discover your entire asset inventory with over 30 active and passive 
+techniques that reveal coverage gaps across your organization, providing a 
+real-time view of your attack surface
+ ▶ Automate asset classification and build comprehensive profiles that 
+include known risks and vulnerabilities with threat intelligence powered by 
+Vedere Labs
+ ▶ Prepare to face new threats as they emerge by leveraging cloud-based 
+machine learning that continuously improves Forescout’s Device Cloud, a 
+proprietary source of device intelligence with over 30 billion unique data 
+points
+ ▶ Continuously assess an asset’s status, risk posture, and policy compliance 
+without needing an agent to be installed, which is essential for protecting 
+IoT, IoMT, and OT assets
+ ▶ Multiply your forces while minimizing human error with automated 
+reporting on compliance posture and cyber-risk exposure, letting you focus 
+your efforts on what matters most
+eyeSight
+The Definitive Source of Truth for 
+Every Connected Asset
+Agentless
+Gain a unified, real-time 
+inventory of network-
+connected assets 
+including their security 
+and risk posture. 
+Accurate
+Classify every device to 
+gain context for building 
+proactive security and 
+compliance policies. 
+Effective
+Automate repetitive 
+tasks like measuring and 
+reporting compliance 
+posture and cyber 
+risk exposure while 
+minimizing human error. 
+Efficient
+Gain real-time assurance 
+that security tools and 
+compliance controls are 
+working properly.
+Assess
+ ▶ Identify security exposures and compliance gaps
+ ▶ Assess adherence to internal and external mandates
+ ▶ Gain situational awareness of cyber and operational risk
+Discover
+ ▶ See devices the instant they connect to the network
+ ▶ Continuously monitor as transient devices come and go
+ ▶ Get a real-time asset inventory that uncovers visibility gaps
+Classify
+ ▶ Identify diverse types of IT, IoT, IoMT, and OT devices
+ ▶ Harness the power of Device Cloud for full device context
+ ▶ Improve auto- classification efficacy, coverage, and speed
+
+===== PAGE 2 =====
+2
+DATASHEET / eyeSight
+Discover 
+Real-time Deep Discovery
+Eliminate blind spots and minimize risk with complete visibility 
+across every facet of your organization:
+• Physical and SDN infrastructure including switches, rout-
+ers, wireless access points, and controllers
+• Laptops, tablets, smartphones, BYOD/guest systems, work-
+from-home devices
+• IoT assets in campus networks, data centers, branches, 
+remote sites, and edge networks
+• Public and private cloud instances across Amazon Web
+• Services, Microsoft Azure, and VMware environments
+• Operational technology (OT) and industrial control systems 
+including HMIs, SCADA, PLCs, building management sys-
+tems (BMS), and building automation systems (BAS)
+• IoMT devices in hospitals and healthcare delivery networks 
+(HDO) like infusion pumps and diagnostic equipment
+ACTIVE TO ASSET
+ 
+Agentless Windows inspection
+• WMI
+• RPC
+• SMB
+ 
+Agentless macOS, Linux inspection
+• SSH
+ 
+NMAP
+SNMP queries
+HTTP queries
+Forescout SecureConnector®
+PASSIVE TO ASSET
+ 
+SNMP traps 
+SPAN traffic Flow analysis
+• NetFlow
+• Flexible NetFlow
+• IPFIX
+• sFlow 
+DHCP requests
+HTTP user-agent
+TCP fingerprinting
+Protocol parsing
+RADIUS requests
+ACTIVE TO INFRASTRUCTURE
+ 
+Network infrastructure polling 
+SDN integration
+• Meraki
+• Cisco ACI 
+Public/Private cloud integration
+• VMware
+• AWS
+• Azure 
+Query directory services (LDAP)
+Query web applications (REST)
+Query databases (SQL)
+eyeExtend orchestrations
+eyeSight Solves For:
+ ▶ Visibility gaps caused by 
+siloed teams and infrastructure 
+including switches, 
+disparate security tools
+ ▶ Operational and business 
+risks due to error-prone 
+manual processes
+ ▶ Incomplete device intelligence 
+hindering the execution 
+of security policies
+ ▶ Security gaps when agent-
+based tools are not up to date 
+or functioning properly
+ ▶ Undetected rogue devices 
+or MAC spoofing
+ ▶ Noncompliance that can 
+quickly emerge between 
+point-in-time scans
+Customize Discovery and Monitoring 
+Techniques for Your Environment
+Leverage the flexibility of 30+ active and passive monitoring 
+techniques across wired, wireless, VPN, and virtual/software-defined 
+networks so you can avoid disrupting assets that are sensitive to 
+active scanning techniques, while also ensuring discovery across 
+both IPv4 and IPv6 address spaces.
+
+===== PAGE 3 =====
+3
+DATASHEET / eyeSight
+Classify
+Intelligent Auto-Classification
+Implementing security policies without full asset context can lead to undesirable outcomes that may put 
+operations at risk. Unique to Forescout, Device Cloud is the largest repository of device intelligence gathered 
+from over 50 million devices and automatically provides comprehensive context for every connected asset. Our 
+multidimensional classification taxonomy identifies device function and type, operating system and version, and 
+vendor and model. This includes:
+• More than 1,900 different operating system versions
+• Over 7,700 different device vendors and models
+• Healthcare devices from over 400 leading medical technology vendors
+• Thousands of industrial control systems and automation devices used across manufacturing, energy, oil 
+and gas, utilities, mining, and other critical infrastructure industries 
+Automated Classification Powered by Forescout Device Cloud
+Device Cloud, the world’s largest repository of asset intelligence, provides the most complete and accurate 
+understanding of asset risk within any organization.
+
+===== PAGE 4 =====
+Forescout Technologies, Inc. 
+Toll-Free (US) 1-866-377-8771
+Tel (Intl) +1-408-213-3191
+Support +1-708-237-6591
+Learn more at Forescout.com
+©2025 Forescout Technologies, Inc. All rights reserved. Forescout Technologies, Inc. 
+is a Delaware corporation. A list of our trademarks and patents can be found at 
+https://www.forescout.com/company/ legal/intellectual-property-patents-trade -
+marks. Other brands, products, or service names may be trademarks or service 
+marks of their respective owners. 01_01
+4
+DATASHEET / eyeSight
+Assess
+Agentless Posture Assessment
+eyeSight continuously discovers assets and immediately assesses the configuration, posture, and risk indicators of 
+the asset to understand whether they adhere to compliance mandates and security policies. Policies can help better 
+quantify risk by assessing compliance conditions such as:
+• Is security software installed, operational and up-to-date with the latest patches?
+• Is the asset critical to business operations?
+• Are any assets running unauthorized applications or violating configuration standards?
+• Are assets - especially IoT, IoMT, and OT systems - using default or weak passwords?
+• Have rogue assets been detected, including those spoofing legitimate assets?
+• Are assets communicating over IPv6 being properly discovered, classified, and assessed for risk?
+• Which of your connected assets are most vulnerable to the latest threats? 
+Monitor
+View Compliance Insights
+Gain actionable insights from out-of-the-box dashboards that quickly pinpoint, prioritize, and proactively mitigate 
+risks across your organization. Customizable dashboard views help security analysts and SOC teams:
+• Assess risk and compliance progress across all or any subset of policies
+• Identify vulnerable and compromised devices to accelerate and focus incident response
+• Track compliance trends over time
+• Personalize and share executive and auditor ready views of risk and compliance data
+• Quickly search and filter assets by policy or device attributes
+Segment, Orchestrate and Enforce
+The Forescout 4D Platform™  extends the value of eyeSight with a suite of automated cybersecurity capabilities to 
+design and implement unified security policies for network access control, dynamic network segmentation, and 
+provides the foundation for Zero Trust security. 
+Visit www.forescout.com/platform/ to learn about the Forescout 4D Platform™ .
+

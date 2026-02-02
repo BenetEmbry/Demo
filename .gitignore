@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtualenvs
+.venv/
+venv/
+ENV/
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local artifacts / reports
+reports/
+artifacts/
+api_report.json
+run_report.json
+evidence.json
+*.enc
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

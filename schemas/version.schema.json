@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version"],
+  "properties": {
+    "version": {"type": "string"},
+    "commit": {"type": "string"},
+    "build_time": {"type": "string"}
+  }
+}
