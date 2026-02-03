@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 import threading
+from collections.abc import Iterator
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
@@ -23,13 +24,35 @@ def _bearer_token(headers: dict[str, str]) -> str | None:
 class _SecureHandler(BaseHTTPRequestHandler):
     server_version = "secure-demo/1.0"
 
+    def _drain_request_body(self) -> None:
+        # If we return early on a POST without consuming the request body,
+        # Windows may abort/reset the connection, which can surface in the
+        # client as ConnectionAbortedError while reading the response.
+        try:
+            length = int(self.headers.get("Content-Length") or "0")
+        except Exception:
+            length = 0
+
+        if length > 0:
+            try:
+                self.rfile.read(length)
+            except Exception:
+                # Best effort only; response correctness matters more than strict draining.
+                pass
+
     def _send_json(self, status: int, payload: object) -> None:
         b = json.dumps(payload).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(b)))
+        self.send_header("Connection", "close")
         self.end_headers()
         self.wfile.write(b)
+        try:
+            self.wfile.flush()
+        except Exception:
+            pass
+        self.close_connection = True
 
     def _authn(self) -> str | None:
         return _bearer_token({"Authorization": self.headers.get("Authorization") or ""})
@@ -54,27 +77,32 @@ class _SecureHandler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:  # noqa: N802
         if (self.path or "").split("?", 1)[0] != "/secure/items":
+            self._drain_request_body()
             self._send_json(404, {"error": "not_found"})
             return
 
         token = self._authn()
         if token is None:
             # Authentication failure
+            self._drain_request_body()
             self._send_json(401, {"error": "unauthorized"})
             return
 
         if token != _ADMIN_TOKEN:
             # Authorization failure (you are authenticated, but not allowed)
+            self._drain_request_body()
             self._send_json(403, {"error": "forbidden"})
             return
 
         ctype = (self.headers.get("Content-Type") or "").lower()
         if "application/json" not in ctype:
+            self._drain_request_body()
             self._send_json(415, {"error": "unsupported_media_type"})
             return
 
         # Allow forcing bad-json without relying on raw bytes in the test
         if (self.headers.get("X-Bad-Json") or "").strip().lower() in ("1", "true", "yes"):
+            self._drain_request_body()
             self._send_json(400, {"error": "invalid_json"})
             return
 
@@ -104,7 +132,7 @@ class _SecureHandler(BaseHTTPRequestHandler):
 
 
 @pytest.fixture()
-def base_url() -> str:
+def base_url() -> Iterator[str]:
     server = ThreadingHTTPServer(("127.0.0.1", 0), _SecureHandler)
     host, port = server.server_address
 
